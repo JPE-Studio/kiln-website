@@ -1,4 +1,4 @@
-// KILN V2 – Basis-Interaktionen
+// KIWN V2 – Basis-Interaktionen
 (function () {
   // Reveal-Animationen (respektiert prefers-reduced-motion)
   const els = document.querySelectorAll('.reveal');

@@ -1,4 +1,4 @@
-/* KILN System-Check – Konfigurator-Logik
+/* KIWN System-Check – Konfigurator-Logik
    Regelwerk bewusst einfach & deterministisch gehalten:
    Empfehlungen sind demonstrativ; vor Bestellung wird jede Kombination
    in der Werkstatt geprüft ("Geprüft") oder klar als Schätzung markiert. */
@@ -9,12 +9,12 @@
 
   const STEPS = ['Euer Profil', 'Eure Aufgaben', 'Eure KI', 'Eure Daten', 'Budget & Hardware', 'Euer Ergebnis'];
   const TIERS = [
-    { name: 'Kiln One', img: 'img/generated-2.png', max: 3, price: 1490, care: 190 },
-    { name: 'Kiln One Max', img: 'img/generated-2.png', max: 5, price: 2490, care: 290 },
-    { name: 'Kiln Studio 128', img: 'img/generated-1.png', max: 12, price: 2990, care: 290 },
-    { name: 'Kiln Studio Ultra 256', img: 'img/generated-1.png', max: 30, price: 5990, care: 290 },
-    { name: 'Kiln Forge', img: 'img/generated-3.png', max: 60, price: 5490, care: 390 },
-    { name: 'Kiln Forge Pro', img: 'img/generated-3.png', max: 999, price: 8990, care: 390 }
+    { name: 'Kiwn One', img: 'img/generated-2.png', max: 3, price: 1490, care: 190 },
+    { name: 'Kiwn One Max', img: 'img/generated-2.png', max: 5, price: 2490, care: 290 },
+    { name: 'Kiwn Studio 128', img: 'img/generated-1.png', max: 12, price: 2990, care: 290 },
+    { name: 'Kiwn Studio Ultra 256', img: 'img/generated-1.png', max: 30, price: 5990, care: 290 },
+    { name: 'Kiwn Forge', img: 'img/generated-3.png', max: 60, price: 5490, care: 390 },
+    { name: 'Kiwn Forge Pro', img: 'img/generated-3.png', max: 999, price: 8990, care: 390 }
   ];
   const HEAVY = ['images', 'video', 'agents']; // Jobs, die unsere Basis-Konfigurationen an ihre Grenzen bringen
 
@@ -22,7 +22,7 @@
     step: 0, maxStep: 0, users: 3,
     industry: '', size: '', it: 'Nein, gar nicht', country: 'Deutschland', expertise: 'kaum',
     ucs: [], ucEscape: false, families: ['offen'], context: 'mittel', qual: 'ausgewogen',
-    conc: 2, kiEscape: false, deploy: '', sensitive: 'Normale Geschäftsdaten', backup: 'KILN – fernwartung nur mit meiner Freigabe',
+    conc: 2, kiEscape: false, deploy: '', sensitive: 'Normale Geschäftsdaten', backup: 'KIWN – fernwartung nur mit meiner Freigabe',
     budget: 3000
   };
   const eur = (n) => n.toLocaleString('de-DE') + ' €';
@@ -141,7 +141,7 @@
     const heavy = state.ucs.some((u) => HEAVY.includes(u));
     const budget = state.budget;
     return [
-      { name: 'KILN-Bausatz (eigene Werkstatt)', v: 'ok', why: 'Unsere gebauten und geprüften Konfigurationen – genau dafür sind wir da.' },
+      { name: 'KIWN-Bausatz (eigene Werkstatt)', v: 'ok', why: 'Unsere gebauten und geprüften Konfigurationen – genau dafür sind wir da.' },
       { name: 'Apple Silicon – Mac Studio als Basis', v: state.users <= 30 ? (heavy ? 'mid' : 'ok') : 'no',
         why: state.users <= 30 ? (heavy ? 'Für eure Bilder-/Video-/Automatisierungs-Wünsche können wir noch nicht alles versprechen – Schätzung.' : 'Läuft in unseren Tests stabil für Teams bis 30 – auch ohne Internet.') : 'Für eure Größe reichen unsere Erfahrungswerte nicht – das sagen wir lieber ehrlich.' },
       { name: 'NVIDIA DGX Spark', v: budget >= 10000 || ((state.ucs.includes('code') || state.ucs.includes('agents')) && budget >= 6000) ? 'ok' : budget >= 6000 ? 'mid' : 'no',
@@ -213,7 +213,7 @@
     }
     wrap.appendChild(card(best, true));
     if (alt !== best) wrap.appendChild(card(alt, false));
-    const summary = `KILN-System-Check: ${state.industry || '–'} · ${state.users} Nutzer · ${(ucs.map((u) => ucText[u]).join(', ')) || '–'} · ${deployText[state.deploy] || '–'} · Budget bis ${eur(state.budget)} · Empfehlung: ${best.name} (${eur(best.price + 390 + best.care)} im 1. Jahr)`;
+    const summary = `KIWN-System-Check: ${state.industry || '–'} · ${state.users} Nutzer · ${(ucs.map((u) => ucText[u]).join(', ')) || '–'} · ${deployText[state.deploy] || '–'} · Budget bis ${eur(state.budget)} · Empfehlung: ${best.name} (${eur(best.price + 390 + best.care)} im 1. Jahr)`;
     sessionStorage.setItem('kiln-summary', summary);
     $('#toHuman').href = 'beratung.html#prefill';
   }
