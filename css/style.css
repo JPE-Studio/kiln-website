@@ -265,3 +265,63 @@ footer .legal{font-size:11px;color:var(--sub);line-height:1.5;padding-bottom:20p
   .trust{flex-direction:column;gap:12px;align-items:flex-start}
   .wrap-wide,.nav-in{padding:0 20px}
 }
+
+/* ---------- Mobile-Optimierung ---------- */
+.nav,.localnav{-webkit-backdrop-filter:saturate(180%) blur(20px)}
+.menu-btn{display:none;align-items:center;background:none;border:0;padding:10px;margin:-10px;cursor:pointer;color:var(--ink)}
+.mobile-menu{display:none}
+
+@media(max-width:768px){
+  /* Navigation */
+  .menu-btn{display:inline-flex}
+  .mobile-menu{display:flex;flex-direction:column;position:fixed;top:48px;left:0;right:0;z-index:49;
+    background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);padding:6px 24px 20px;box-shadow:var(--shadow)}
+  .mobile-menu[hidden]{display:none}
+  .mobile-menu a{padding:15px 0;font-size:16px;color:var(--ink);border-bottom:1px solid #e8e8ed}
+  .mobile-menu a.btn{margin-top:14px;border-bottom:0;justify-content:center}
+  .nav-right a:not(.nav-icon){font-size:13px}
+
+  /* Lokal-Navigation (Produkt) */
+  .localnav nav a:not(.btn){display:none}
+
+  /* Typo & Abstände */
+  section{padding:64px 0}
+  .hero{padding:48px 0 8px}
+  .cta-row .btn{width:100%}
+  .tile{padding:28px;min-height:240px}
+  .foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+
+  /* Touch-Targets ≥ 44px */
+  .chip,.radio-pill{padding:11px 18px;font-size:14px}
+  .btn-sm{padding:11px 18px}
+
+  /* Katalog-Karten linksbündig für ruhigere Mobile-Optik */
+  .img-card .body{text-align:left;align-items:flex-start}
+  .img-card .body p{max-width:none}
+
+  /* Konfigurator */
+  .cfg-top .wrap-wide{height:auto;padding-top:10px;padding-bottom:10px;flex-wrap:wrap;gap:8px}
+  .cfg-meta{width:100%;justify-content:space-between}
+  .cfg-meta .btn{padding:8px 14px;font-size:12px}
+  .rail{padding:12px 20px;gap:2px}
+  .rail-item{padding:8px 10px;font-size:12px}
+  .cfg-main{padding:28px 20px 48px}
+  .cfg-q{font-size:24px}
+  .seg{width:100%;overflow-x:auto}
+  .seg button{flex:1 0 auto;padding:11px 14px}
+  .stepper button{width:48px;height:46px}
+  .cfg-footer{gap:12px}
+  .cfg-footer .btn{flex:1}
+  #autoSave{display:none}
+  .verdict{padding:26px}
+  .legend{flex-direction:column;gap:10px;align-items:flex-start}
+
+  /* Beratung */
+  #consultForm > .card[style*="flex-direction:row"]{align-items:flex-start}
+}
+@media(max-width:480px){
+  .field-row{grid-template-columns:1fr}
+  #consultForm div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+  .mobile-menu a{font-size:17px}
+}
