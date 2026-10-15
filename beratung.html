@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beratung – KILN</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html">KILN</a>
+    <nav aria-label="Hauptnavigation"><ul class="nav-links">
+      <li><a href="katalog.html">Systeme</a></li><li><a href="konfigurator.html">KI-Finder</a></li><li><a href="privatsphaere.html">Privatsphäre</a></li><li><a href="#">Support</a></li>
+    </ul></nav>
+    <div class="nav-right"><a href="beratung.html" aria-current="page">Beratung</a></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap-wide consult" style="display:grid;grid-template-columns:1fr 520px;gap:90px;padding-top:80px;padding-bottom:120px;align-items:start">
+    <div>
+      <p class="eyebrow">Beratung</p>
+      <h1 class="page" style="font-size:clamp(34px,4.4vw,52px)">Ein Mensch. Ein Gespräch. Kein Skript.</h1>
+      <p class="lead" style="margin-top:16px;max-width:520px">Ein Ingenieur aus unserer Werkstatt ruft euch an. 30 Minuten, deutsch, ohne Verkaufsdruck.</p>
+      <ul class="fit-list" style="margin-top:28px;gap:18px">
+        <li>Wir haben eure Antworten aus dem System-Check gelesen – ihr müsst nichts doppelt erklären.</li>
+        <li>Ehrlichkeit gehört zum Handwerk: Braucht ihr kein System, sagen wir es euch.</li>
+        <li>Danach bekommt ihr alles Schriftlich. Keine Aufdringlichkeit.</li>
+      </ul>
+    </div>
+
+    <form class="card" style="background:var(--gray);border-radius:24px;gap:18px" id="consultForm" novalidate>
+      <div class="card" style="flex-direction:row;gap:12px;align-items:center;padding:14px 18px;border-radius:14px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.2 2.2m8.4 8.4 2.2 2.2m0-12.8-2.2 2.2M7.8 16.2l-2.2 2.2"/></svg>
+        <div><strong style="font-size:13px;display:block" id="prefillHead">Aus eurem System-Check übernommen</strong>
+        <span style="font-size:12px;color:var(--sub)" id="prefillText">Kanzlei · 12 Personen · Dokumente &amp; Wissen · bis 6.000 €</span></div>
+      </div>
+      <div class="field"><label for="name">Name *</label><input class="input" id="name" required autocomplete="name"><span class="err-msg">Bitte sagt uns euren Namen.</span></div>
+      <div class="field"><label for="email">Berufliche E-Mail *</label><input class="input" id="email" type="email" required autocomplete="email"><span class="err-msg">Bitte eine gültige E-Mail-Adresse angeben.</span></div>
+      <div class="field"><label for="company">Firma (optional)</label><input class="input" id="company" autocomplete="organization"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="field"><label for="team">Teamgröße</label><div class="select-wrap"><select class="input" id="team"><option>1–5</option><option selected>6–20</option><option>21–50</option><option>50+</option></select></div></div>
+        <div class="field"><label for="when">Wann passt es?</label><div class="select-wrap"><select class="input" id="when"><option>So schnell wie möglich</option><option selected>Diese Woche</option><option>Nächste Woche</option><option>Erst mal unverbindlich</option></select></div></div>
+      </div>
+      <div class="field"><label for="topic">Worum geht es? (optional)</label><textarea class="input" id="topic" rows="3">Wie besprochen: Akten und Rechnungen, ohne Cloud.</textarea></div>
+      <div class="field"><label>Wie erreicht euch der Ingenieur am besten?</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <label class="radio-pill"><input type="radio" name="way" checked>Rückruf</label>
+          <label class="radio-pill"><input type="radio" name="way">E-Mail</label>
+          <label class="radio-pill"><input type="radio" name="way">Videocall</label>
+        </div>
+      </div>
+      <label class="check"><input type="checkbox" id="consent" required>Ich stimme zu, dass KILN meine Angaben zur Kontaktaufnahme speichert. Keine Weitergabe, kein Newsletter.</label>
+      <button class="btn" style="width:100%" type="submit">Rückruf anfordern</button>
+      <p class="center" style="font-size:12px;color:var(--sub)">Wir melden uns zum gewünschten Zeitpunkt. Ohne Verkaufsdruck – versprochen.</p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap-wide">
+    <p class="legal">Wir rufen nur an, wenn ihr es wollt. Keine erfundenen Verfügbarkeiten, keine Werbeanrufe.</p>
+    <div class="foot-bottom">
+      <span>Copyright © 2025 KILN GmbH. Alle Rechte vorbehalten.</span>
+      <nav aria-label="Rechtliches"><a href="privatsphaere.html">Datenschutz</a><a href="#">Impressum</a><a href="#">AGB</a></nav>
+    </div>
+  </div>
+</footer>
+<script>
+  // Prefill aus dem System-Check (sessionStorage)
+  (function(){
+    var s = sessionStorage.getItem('kiln-summary');
+    if(s && location.hash === '#prefill'){
+      document.getElementById('prefillText').textContent = s.replace('KILN-System-Check: ','');
+    }
+  })();
+  // Validierung + Sende-Zustand (Demo: kein echtes Backend)
+  document.getElementById('consultForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var ok = true;
+    var n = document.getElementById('name'), m = document.getElementById('email'), c = document.getElementById('consent');
+    n.classList.toggle('invalid', !n.value.trim()); if(!n.value.trim()) ok = false;
+    var mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.value); m.classList.toggle('invalid', !mailOk); if(!mailOk) ok = false;
+    if(!c.checked) ok = false;
+    if(ok){ var b = this.querySelector('button[type=submit]'); b.textContent = 'Angekommen – wir melden uns.'; b.disabled = true; }
+  });
+</script>
+</body>
+</html>

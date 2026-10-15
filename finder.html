@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KI-Finder – KILN</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html">KILN</a>
+    <nav aria-label="Hauptnavigation"><ul class="nav-links">
+      <li><a href="katalog.html">Systeme</a></li><li><a href="konfigurator.html" aria-current="page">KI-Finder</a></li><li><a href="privatsphaere.html">Privatsphäre</a></li><li><a href="#">Support</a></li>
+    </ul></nav>
+    <div class="nav-right"><a href="beratung.html">Beratung</a></div>
+  </div>
+</header>
+
+<main>
+  <section class="tight center" style="padding-bottom:20px">
+    <div class="wrap">
+      <h1 class="page">Erzählt uns von eurem Alltag.</h1>
+      <p class="lead" style="max-width:600px;margin:14px auto 0">Vier kurze Fragen. Kein einziges Fachwort. Daraus bauen wir euer System.</p>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:22px" aria-hidden="true">
+        <span style="width:28px;height:8px;border-radius:4px;background:var(--blue)"></span>
+        <span style="width:8px;height:8px;border-radius:4px;background:var(--line)"></span>
+        <span style="width:8px;height:8px;border-radius:4px;background:var(--line)"></span>
+        <span style="width:8px;height:8px;border-radius:4px;background:var(--line)"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" style="padding-top:24px">
+    <div class="wrap">
+      <h2 class="card-t" style="font-size:26px;margin-bottom:20px">Was frisst bei euch die meiste Zeit?</h2>
+      <div class="grid-2" id="uc">
+        <button class="opt-card" aria-pressed="true"><span class="oc-check" aria-hidden="true"></span><h4>Papierkram</h4><p>Rechnungen, Verträge, Formulare</p></button>
+        <button class="opt-card" aria-pressed="false"><span class="oc-check" aria-hidden="true"></span><h4>Verstreutes Wissen</h4><p>Alles liegt bei irgendjemandem</p></button>
+        <button class="opt-card" aria-pressed="false"><span class="oc-check" aria-hidden="true"></span><h4>Protokolle</h4><p>Besprechen, mitschreiben, fertig sein</p></button>
+        <button class="opt-card" aria-pressed="false"><span class="oc-check" aria-hidden="true"></span><h4>Wissen es noch nicht</h4><p>Hauptsache, es wird leichter</p></button>
+      </div>
+
+      <h2 class="card-t" style="font-size:26px;margin:44px 0 16px">Wer soll sie nutzen?</h2>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <label class="radio-pill"><input type="radio" name="who">Nur ich</label>
+        <label class="radio-pill"><input type="radio" name="who" checked>2–5 Personen</label>
+        <label class="radio-pill"><input type="radio" name="who">6–20 Personen</label>
+        <label class="radio-pill"><input type="radio" name="who">Mehr als 20</label>
+      </div>
+
+      <h2 class="card-t" style="font-size:26px;margin:44px 0 16px">Wo arbeitet ihr?</h2>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <label class="radio-pill"><input type="radio" name="where">Im Büro</label>
+        <label class="radio-pill"><input type="radio" name="where" checked>Büro &amp; Homeoffice</label>
+        <label class="radio-pill"><input type="radio" name="where">Praxis / Kanzlei</label>
+        <label class="radio-pill"><input type="radio" name="where">Werkstatt / Lager</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="card center-card" style="background:var(--dark);color:#f5f5f7;border-radius:26px;padding:64px 48px">
+        <h2 class="sec" style="font-size:clamp(26px,3.4vw,36px);color:#f5f5f7">Keine Sorge: Falsch wählen ist hier unmöglich.</h2>
+        <p style="color:#a1a1a6;max-width:560px;font-size:16px">Eure Antworten zeigen nur eine Richtung. Den Rest klären wir gemeinsam – in echtem Deutsch.</p>
+        <div class="cta-row">
+          <a class="btn" href="konfigurator.html">Meine Empfehlung zeigen</a>
+          <a class="link chev" href="beratung.html" style="color:#2997ff">Lieber direkt mit einem Menschen sprechen?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap-wide">
+    <p class="legal">Eure Antworten bleiben auf diesem Gerät, bis ihr sie uns selbst schickt. Kein Tracking.</p>
+    <div class="foot-bottom">
+      <span>Copyright © 2025 KILN GmbH. Alle Rechte vorbehalten.</span>
+      <nav aria-label="Rechtliches"><a href="privatsphaere.html">Datenschutz</a><a href="#">Impressum</a><a href="#">AGB</a></nav>
+    </div>
+  </div>
+</footer>
+<script>
+  document.querySelectorAll('#uc .opt-card').forEach(c=>c.addEventListener('click',()=>c.setAttribute('aria-pressed',String(c.getAttribute('aria-pressed')!=='true'))));
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Systeme – KILN</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html">KILN</a>
+    <nav aria-label="Hauptnavigation"><ul class="nav-links">
+      <li><a href="katalog.html" aria-current="page">Systeme</a></li><li><a href="konfigurator.html">KI-Finder</a></li><li><a href="privatsphaere.html">Privatsphäre</a></li><li><a href="#">Support</a></li>
+    </ul></nav>
+    <div class="nav-right"><a href="beratung.html">Beratung</a></div>
+  </div>
+</header>
+
+<main>
+  <section class="tight center" style="padding-bottom:36px">
+    <div class="wrap">
+      <h1 class="page">Findet euer System.</h1>
+      <p class="lead" style="max-width:640px;margin:14px auto 0">Jedes System hier wird in unserer Werkstatt gebaut und drei Tage geprüft. Feste Preise, keine Überraschungen.</p>
+    </div>
+  </section>
+
+  <div class="wrap-wide">
+    <div class="filter-bar" role="group" aria-label="Filter">
+      <button class="chip selected" aria-pressed="true">Einsatz: Dokumente <span class="x" aria-hidden="true">×</span></button>
+      <button class="chip selected" aria-pressed="true">Ohne Internet <span class="x" aria-hidden="true">×</span></button>
+      <button class="chip selected" aria-pressed="true">Bis 6.000 € <span class="x" aria-hidden="true">×</span></button>
+      <button class="chip selected" aria-pressed="true" aria-label="Nur geprüfte Systeme, aktiv">✓ Nur Geprüfte</button>
+      <span class="count" id="count">6 Systeme · Sortiert nach: Empfehlung</span>
+    </div>
+  </div>
+
+  <section class="tight gray" style="padding:0 0 110px;padding-top:0">
+    <div class="wrap-wide" style="padding-top:28px">
+      <div class="grid-3" id="grid">
+        <!-- Karten werden aus js/katalog-data befüllt: statisch hier für Robustheit -->
+        <a class="card img-card" href="produkt.html">
+          <div class="photo" style="background-image:url(img/generated-2.png)"></div>
+          <div class="body"><h3 class="card-t">Kiln One</h3><p>Der ruhige Helfer für euren Start.</p>
+          <div class="card-links" style="gap:8px"><span class="badge">1–3 Personen</span><span class="badge">Ohne Internet</span></div>
+          <span class="price">ab 1.490 €</span>
+          <div class="card-links"><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>Geprüft</span></div>
+          <div class="card-links"><span class="link chev">Ansehen</span><span class="link">Beratung</span></div></div>
+        </a>
+        <a class="card img-card" href="produkt.html">
+          <div class="photo" style="background-image:url(img/generated-2.png)"></div>
+          <div class="body"><h3 class="card-t">Kiln One Max</h3><p>Mehr Reserve, gleiches Prinzip.</p>
+          <div class="card-links" style="gap:8px"><span class="badge">1–5 Personen</span><span class="badge">Ohne Internet</span></div>
+          <span class="price">ab 2.490 €</span>
+          <div class="card-links"><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>Geprüft</span></div>
+          <div class="card-links"><span class="link chev">Ansehen</span><span class="link">Beratung</span></div></div>
+        </a>
+        <a class="card img-card" href="produkt.html" style="outline:2px solid var(--blue);outline-offset:3px">
+          <div class="photo" style="background-image:url(img/generated-1.png)"></div>
+          <div class="body"><h3 class="card-t">Kiln Studio 128</h3><p>Kraft für Teams, die viel vorhaben.</p>
+          <div class="card-links" style="gap:8px"><span class="badge">3–12 Personen</span><span class="badge">Ohne Internet</span></div>
+          <span class="price">ab 2.990 €</span>
+          <div class="card-links"><span class="badge blue">Passt zu eurem Check</span></div>
+          <div class="card-links"><span class="link chev">Ansehen</span><span class="link">Beratung</span></div></div>
+        </a>
+        <a class="card img-card" href="produkt.html">
+          <div class="photo" style="background-image:url(img/generated-1.png)"></div>
+          <div class="body"><h3 class="card-t">Kiln Studio Ultra 256</h3><p>Wenn ihr bald verdoppelt.</p>
+          <div class="card-links" style="gap:8px"><span class="badge">6–30 Personen</span><span class="badge">Ohne Internet</span></div>
+          <span class="price">ab 5.990 €</span>
+          <div class="card-links"><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>Geprüft</span></div>
+          <div class="card-links"><span class="link chev">Ansehen</span><span class="link">Beratung</span></div></div>
+        </a>
+        <a class="card img-card" href="produkt.html">
+          <div class="photo" style="background-image:url(img/generated-3.png)"></div>
+          <div class="body"><h3 class="card-t">Kiln Forge</h3><p>Wenn's das ganze Büro mitmacht.</p>
+          <div class="card-links" style="gap:8px"><span class="badge">10–30 Personen</span><span class="badge">Eigenes Netzwerk</span></div>
+          <span class="price">ab 5.490 €</span>
+          <div class="card-links"><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>Geprüft</span></div>
+          <div class="card-links"><span class="link chev">Ansehen</span><span class="link">Beratung</span></div></div>
+        </a>
+        <a class="card img-card" href="produkt.html">
+          <div class="photo" style="background-image:url(img/generated-3.png)"></div>
+          <div class="body"><h3 class="card-t">Kiln Forge Pro</h3><p>Die Werkbank für schwere Fälle.</p>
+          <div class="card-links" style="gap:8px"><span class="badge">20+ Personen</span><span class="badge">Eigenes Netzwerk</span></div>
+          <span class="price">ab 8.990 €</span>
+          <div class="card-links"><span class="badge">Neu in der Werkstatt</span></div>
+          <div class="card-links"><span class="link chev">Ansehen</span><span class="link">Beratung</span></div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="compare-bar">
+    <div class="wrap-wide">
+      <span style="font-size:14px">Zum Vergleich ausgewählt: <strong>Kiln Studio 128</strong> · <strong>Kiln Forge</strong></span>
+      <a class="btn btn-sm" href="#" onclick="return false" aria-disabled="true">Vergleichen</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap-wide">
+    <p class="legal">Preise inkl. MwSt. Beispielhafte Inhalte – Preise und Verfügbarkeit vor Bestellung verifizieren.</p>
+    <div class="foot-bottom">
+      <span>Copyright © 2025 KILN GmbH. Alle Rechte vorbehalten.</span>
+      <nav aria-label="Rechtliches"><a href="#">Datenschutz</a><a href="#">Impressum</a><a href="#">AGB</a></nav>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

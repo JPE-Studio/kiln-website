@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>System-Check – KILN</title>
+<meta name="description" content="In sechs Schritten zu eurem passenden lokalen KI-System. Kein Fachwörter nötig – wir empfehlen, prüfen und sagen ehrlich, was nicht passt.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html">KILN</a>
+    <nav aria-label="Hauptnavigation"><ul class="nav-links">
+      <li><a href="katalog.html">Systeme</a></li><li><a href="konfigurator.html" aria-current="page">KI-Finder</a></li><li><a href="privatsphaere.html">Privatsphäre</a></li><li><a href="#">Support</a></li>
+    </ul></nav>
+    <div class="nav-right"><a href="beratung.html">Beratung</a></div>
+  </div>
+</header>
+
+<div class="cfg-top">
+  <div class="wrap-wide">
+    <span class="cfg-title">System-Check</span>
+    <div class="cfg-meta">
+      <span class="step-count" id="stepCount">Schritt 1 von 6</span>
+      <button class="btn btn-ghost btn-sm" type="button" id="saveBtn">Zwischenstand speichern</button>
+    </div>
+  </div>
+</div>
+<div class="progress" aria-hidden="true"><div class="bar" id="progressBar" style="width:16.6%"></div></div>
+
+<div class="cfg-body">
+  <aside class="rail" aria-label="Konfigurationsschritte" id="rail"></aside>
+
+  <form class="cfg-main" id="cfgForm" novalidate>
+    <input type="hidden" id="stateField" name="state">
+
+    <!-- ═══════════ SCHRITT A · PROFIL ═══════════ -->
+    <section class="step" data-step="0" aria-labelledby="q0">
+      <h1 class="cfg-q" id="q0">Erzählt uns kurz von euch.</h1>
+      <p class="cfg-sub">Damit wir verstehen, für welchen Alltag wir bauen. Keine Antwort ist falsch.</p>
+      <div class="grid-2">
+        <div class="field"><label for="industry">In was für einem Betrieb arbeitet ihr?</label>
+          <div class="select-wrap"><select class="input" id="industry" required>
+            <option value="">Bitte wählen …</option>
+            <option>Kanzlei / Steuern / Recht</option><option>Handel / Handwerk / Logistik</option>
+            <option>Praxis / Gesundheit</option><option>Agentur / Beratung</option>
+            <option>Software / IT-Dienstleistung</option><option>Verwaltung / Verein</option><option>Sonstiges</option>
+          </select></div>
+        </div>
+        <div class="field"><label for="size">Wie viele Menschen arbeiten bei euch?</label>
+          <div class="select-wrap"><select class="input" id="size" required>
+            <option value="">Bitte wählen …</option><option>1–5</option><option>6–20</option><option>21–50</option><option>51–200</option><option>Mehr als 200</option>
+          </select></div>
+        </div>
+        <div class="field"><label for="users">Wie viele sollen die KI tatsächlich nutzen?</label>
+          <div class="stepper" role="group" aria-label="Anzahl Nutzer">
+            <button type="button" id="usersMinus" aria-label="Weniger">−</button>
+            <span class="val" id="usersVal" aria-live="polite">3</span>
+            <button type="button" id="usersPlus" aria-label="Mehr">+</button>
+          </div>
+        </div>
+        <div class="field"><label for="it">Habt ihr schon jemanden für Technik im Haus?</label>
+          <div class="select-wrap"><select class="input" id="it">
+            <option>Nein, gar nicht</option><option>Nur ab und zu</option><option>Ja, eine IT-Kraft</option><option>Ja, ein ganzes Team</option>
+          </select></div>
+        </div>
+        <div class="field"><label for="country">Wo steht das System später?</label>
+          <div class="select-wrap"><select class="input" id="country">
+            <option>Deutschland</option><option>Österreich</option><option>Schweiz</option><option>EU, anderes Land</option>
+          </select></div>
+        </div>
+        <div class="field"><label>Wietechnisch seid ihr? (ganz ehrlich)</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <label class="radio-pill"><input type="radio" name="expertise" value="kaum" checked>Überhaupt nicht</label>
+            <label class="radio-pill"><input type="radio" name="expertise" value="etwas">Ein bisschen</label>
+            <label class="radio-pill"><input type="radio" name="expertise" value="profi">Profi vorhanden</label>
+          </div>
+        </div>
+      </div>
+      <p class="err-msg" id="err0" role="alert">Bitte Branche und Größe angeben, damit wir weitermachen können.</p>
+    </section>
+
+    <!-- ═══════════ SCHRITT B · AUFGABEN ═══════════ -->
+    <section class="step" data-step="1" aria-labelledby="q1" hidden>
+      <h1 class="cfg-q" id="q1">Was soll die KI für euch tun?</h1>
+      <p class="cfg-sub">Mehrfachauswahl. Wählt einfach, was nach eurem Alltag klingt.</p>
+      <div class="opt-grid" id="useCases">
+        <button type="button" class="opt-card" data-uc="docs" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+          <h4>Papierkram</h4><p>Rechnungen, Verträge, Formulare – gefunden, sortiert, zusammengefasst.</p>
+        </button>
+        <button type="button" class="opt-card" data-uc="knowledge" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <h4>Verstreutes Wissen</h4><p>Eine Stelle, wo das ganze Team alles findet – aus Ordnern, Mails, Wikis.</p>
+        </button>
+        <button type="button" class="opt-card" data-uc="chat" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <h4>Fragen beantworten</h4><p>Ein Kollege, der immer da ist: formulieren, übersetzen, nachschlagen.</p>
+        </button>
+        <button type="button" class="opt-card" data-uc="notes" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+          <h4>Protokolle</h4><p>Gespräche mitschreiben und sauber zusammenfassen – automatisch.</p>
+        </button>
+        <button type="button" class="opt-card" data-uc="code" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+          <h4>Software-Arbeit</h4><p>Beim Programmieren und im Code-Repository mithelfen.</p>
+        </button>
+        <button type="button" class="opt-card" data-uc="images" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg>
+          <h4>Bilder &amp; Grafik</h4><p>Bilder erzeugen und bearbeiten – für Angebote, Social Media, Präsentationen.</p>
+        </button>
+        <button type="button" class="opt-card" data-uc="agents" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <h4>Arbeitsabläufe</h4><p>Wiederkehrende Schritte von allein erledigen lassen – mit klaren Regeln.</p>
+        </button>
+        <button type="button" class="opt-card" data-uc="video" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2"/></svg>
+          <h4>Video &amp; Medien</h4><p>Aufnahmen sortieren, Zuschnitte vorbereiten. Rechenintensiv – das wissen wir.</p>
+        </button>
+      </div>
+      <label class="escape"><input type="checkbox" id="ucEscape">Wir wissen es noch nicht genau – empfiehlt uns einfach etwas Vernünftiges.</label>
+      <p class="err-msg" id="err1" role="alert">Wählt mindestens eine Aufgabe aus – oder lasst uns empfehlen (Häkchen unten).</p>
+    </section>
+
+    <!-- ═══════════ SCHRITT C · KI ═══════════ -->
+    <section class="step" data-step="2" aria-labelledby="q2" hidden>
+      <h1 class="cfg-q" id="q2">Wie klug und wie schnell soll sie sein?</h1>
+      <p class="cfg-sub">Kein Fachwort, versprochen. Wenn ihr hier unsicher seid: unten einen Haken setzen, wir empfehlen.</p>
+      <div class="field" style="margin-bottom:20px"><label>Sprachmodelle – habt ihr Wünsche?</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap" id="families">
+          <label class="radio-pill"><input type="checkbox" value="offen" checked>Offen &amp; bewährt</label>
+          <label class="radio-pill"><input type="checkbox" value="europaeisch">Europäische Anbieter</label>
+          <label class="radio-pill"><input type="checkbox" value="keine">Keine Präferenz</label>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:20px"><label>Woran soll sie sich halten, wenn es lang wird? (Kontext)</label>
+        <div class="seg" role="group" aria-label="Kontextlänge">
+          <button type="button" data-k="kurz" aria-pressed="false">Kurze Dokumente</button>
+          <button type="button" data-k="mittel" aria-pressed="true">Akte &amp; Mappen</button>
+          <button type="button" data-k="lang" aria-pressed="false">Ganze Archive</button>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:20px"><label>Was ist euch wichtiger?</label>
+        <div class="seg" role="group" aria-label="Geschwindigkeit oder Qualität">
+          <button type="button" data-qual="schnell" aria-pressed="false">Zackig</button>
+          <button type="button" data-qual="ausgewogen" aria-pressed="true">Ausgewogen</button>
+          <button type="button" data-qual="qualitaet" aria-pressed="false">Beste Antworten</button>
+        </div>
+      </div>
+      <div class="field"><label for="concurrent">Wie viele nutzen sie gleichzeitig – zur Stoßzeit?</label>
+        <div class="stepper" role="group" aria-label="Gleichzeitige Nutzer">
+          <button type="button" id="concMinus" aria-label="Weniger">−</button>
+          <span class="val" id="concVal" aria-live="polite">2</span>
+          <button type="button" id="concPlus" aria-label="Mehr">+</button>
+        </div>
+      </div>
+      <label class="escape"><input type="checkbox" id="kiEscape">Ich weiß es nicht – empfehlt mir eine sinnvolle Einstellung.</label>
+    </section>
+
+    <!-- ═══════════ SCHRITT D · DATEN ═══════════ -->
+    <section class="step" data-step="3" aria-labelledby="q3" hidden>
+      <h1 class="cfg-q" id="q3">Wo darf eure KI arbeiten?</h1>
+      <p class="cfg-sub">Das Wichtigste zuerst: Standard ist, dass nichts euer Haus verlässt. Alles andere schaltet ihr selbst frei.</p>
+      <div class="opt-grid" id="deploy">
+        <button type="button" class="opt-card" data-deploy="offline" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="2" x2="22" y2="22"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 13a10 10 0 0 1 5.24-2.76"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          <h4>Komplett ohne Internet</h4><p>Das Kabel bleibt raus. Höchste Stufe – nichts kann das Haus verlassen.</p>
+        </button>
+        <button type="button" class="opt-card" data-deploy="lan" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <h4>Nur euer Büronetz</h4><p>Alle im Haus erreichen sie, nach draußen geht nichts.</p>
+        </button>
+        <button type="button" class="opt-card" data-deploy="remote" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          <h4>Auch von unterwegs</h4><p>Homeoffice &amp; Dienstreisen – über einen verschlüsselten, abgeschaltbaren Zugang.</p>
+        </button>
+        <button type="button" class="opt-card" data-deploy="apis" aria-pressed="false">
+          <span class="oc-check" aria-hidden="true"></span>
+          <svg class="oc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M6 8H5a4 4 0 0 0 0 8h1"/><path d="M2 12h20"/></svg>
+          <h4>Externe Dienste erlaubt</h4><p>Nur wenn ihr es je Einzelfall freigebt. Wir zeigen transparent, was dann wohin geht.</p>
+        </button>
+      </div>
+      <div class="grid-2" style="margin-top:22px">
+        <div class="field"><label for="sensitive">Arbeitet ihr mit besonders schützenswerten Daten?</label>
+          <div class="select-wrap"><select class="input" id="sensitive">
+            <option>Ja, sehr schützenswert (Mandate, Patienten, Personal)</option><option>Normale Geschäftsdaten</option>
+          </select></div>
+        </div>
+        <div class="field"><label for="backup">Wer soll Backups &amp; Updates übernehmen?</label>
+          <div class="select-wrap"><select class="input" id="backup">
+            <option>KILN – fernwartung nur mit meiner Freigabe</option><option>KILN – vor Ort, mit Termin</option><option>Wir selbst</option>
+          </select></div>
+        </div>
+      </div>
+      <p class="err-msg" id="err3" role="alert">Wählt bitte eine Betriebsart aus.</p>
+    </section>
+
+    <!-- ═══════════ SCHRITT E · BUDGET & HARDWARE ═══════════ -->
+    <section class="step" data-step="4" aria-labelledby="q4" hidden>
+      <h1 class="cfg-q" id="q4">Was darf es kosten – und was darf's sein?</h1>
+      <p class="cfg-sub">Die grünen Punkte sind Konfigurationen, die wir in unserer Werkstatt wirklich getestet haben. Orange sind Serienschätzungen. Rot heißt ehrlich: nein.</p>
+      <div class="field" style="margin-bottom:22px"><label>Euer Rahmen fürs erste Jahr (inkl. Einrichtung):</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap" id="budgets">
+          <label class="radio-pill"><input type="radio" name="budget" value="3000" checked>bis 3.000 €</label>
+          <label class="radio-pill"><input type="radio" name="budget" value="6000">bis 6.000 €</label>
+          <label class="radio-pill"><input type="radio" name="budget" value="10000">bis 10.000 €</label>
+          <label class="radio-pill"><input type="radio" name="budget" value="99999">kein fester Rahmen</label>
+        </div>
+      </div>
+      <div id="platforms" style="display:flex;flex-direction:column;gap:14px"></div>
+      <p class="err-msg" id="err4" role="alert">Für diesen Rahmen passt aktuell nichts zusammen – passt das Budget an oder sprecht mit uns.</p>
+    </section>
+
+    <!-- ═══════════ SCHRITT F · ERGEBNIS ═══════════ -->
+    <section class="step" data-step="5" aria-labelledby="q5" hidden>
+      <h1 class="cfg-q" id="q5">Euer Ergebnis.</h1>
+      <p class="cfg-sub">Zwei Wege passen zu euch. Ehrlich erklärt – einer reicht meistens.</p>
+      <div class="legend">
+        <span><span class="dot dot-ok"></span>Geprüft: in unserer Werkstatt mit euren Aufgaben getestet</span>
+        <span><span class="dot dot-mid"></span>Schätzung: passt nach unserer Erfahrung, Nachweis bei Bestellung</span>
+      </div>
+      <div class="grid-2" id="results"></div>
+      <div class="cta-row" style="justify-content:flex-start;margin-top:28px">
+        <a class="btn" href="katalog.html">So kaufen</a>
+        <a class="link chev" href="#" id="toHuman">Mit einem Menschen besprechen</a>
+        <a class="link chev" href="#" onclick="window.print();return false">Bericht ausdrucken</a>
+      </div>
+      <label class="escape" style="margin-top:24px"><input type="checkbox" id="consentOut">Ich stimme zu, dass KILN diese Angaben zur Kontaktaufnahme speichert. Keine Weitergabe.</label>
+    </section>
+
+    <!-- Fußnavigation -->
+    <div class="cfg-footer">
+      <button class="btn btn-ghost" type="button" id="backBtn">Zurück</button>
+      <div style="display:flex;gap:14px;align-items:center">
+        <span class="count" id="autoSave"></span>
+        <button class="btn" type="button" id="nextBtn">Weiter</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<footer>
+  <div class="wrap-wide">
+    <p class="legal">Eure Antworten bleiben auf diesem Gerät, bis ihr sie uns selbst schickt (Beratung/Kauf). Kein Tracking. Beispielhafte Preise – vor Bestellung verifizieren.</p>
+    <div class="foot-bottom">
+      <span>Copyright © 2025 KILN GmbH. Alle Rechte vorbehalten.</span>
+      <nav aria-label="Rechtliches"><a href="privatsphaere.html">Datenschutz</a><a href="#">Impressum</a><a href="#">AGB</a></nav>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/main.js"></script>
+<script src="js/konfigurator.js"></script>
+</body>
+</html>
